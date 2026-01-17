@@ -32,7 +32,7 @@ class Command(BaseCommand):
                 )
             else:
                 self.stdout.write(
-                    self.style.WARNING(f"Transaction {transaction.transaction_id} was already processed (Idempotent check).")
+                    self.style.WARNING(f"Transaction {transaction.transaction_id} was already processed.")
                 )
 
         except json.JSONDecodeError:
