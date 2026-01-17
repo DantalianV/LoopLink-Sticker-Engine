@@ -1,3 +1,4 @@
+import sys
 import textwrap
 from pathlib import Path
 
@@ -9,6 +10,7 @@ MIN_NODE_VERSION = "22"
 
 DOCKER_PROJECT_NAME = "looplink-interview"
 DOCKER_COMPOSE_FILE = "docker-compose.yml"
+PTY = sys.platform != "win32"
 
 
 @task
@@ -46,7 +48,7 @@ def _install_python_requirements(c: Context):
     result = c.run(
         "uv sync --dry-run",
         echo=True,
-        pty=True,
+        pty=PTY,
     )
     if "no changes" in result.stdout:
         return
@@ -55,12 +57,12 @@ def _install_python_requirements(c: Context):
         c.run(
             "uv sync --compile-bytecode",
             echo=True,
-            pty=True,
+            pty=PTY,
         )
 
 
 def _install_npm_requirements(c: Context):
-    c.run("npm install", echo=True, pty=True)
+    c.run("npm install", echo=True, pty=PTY)
 
 
 @task
@@ -116,7 +118,7 @@ def npm(c: Context, watch=False, install=False):
     if install:
         _install_npm_requirements(c)
     cmd = "watch" if watch else "build"
-    c.run(f"npm run {cmd}", echo=True, pty=True)
+    c.run(f"npm run {cmd}", echo=True, pty=PTY)
 
 
 @task
@@ -127,7 +129,7 @@ def webpack(c: Context):
 def _run_with_confirm(c: Context, message, command, step=False):
     cprint(f"\n{message}", "green")
     if not step or _confirm("\tOK?", _exit=False):
-        c.run(command, echo=True, pty=True)
+        c.run(command, echo=True, pty=PTY)
         return True
 
 
