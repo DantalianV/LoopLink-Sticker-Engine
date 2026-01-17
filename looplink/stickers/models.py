@@ -14,3 +14,4 @@ class Transaction(models.Model):
     # Storing raw items as JSON is efficient for a MVP
     # In production use dedicated model for item
     items_data = models.JSONField()
+    

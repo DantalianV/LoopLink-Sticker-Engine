@@ -33,6 +33,7 @@ THIRD_PARTY_APPS = [
 ]
 PROJECT_APPS = [
     "looplink.django_ext",
+    "looplink.stickers",
 ]
 UI_APPS = [
     "looplink.ui.base",
@@ -82,12 +83,8 @@ TEMPLATES = [
 # ─── DATABASES ─────────────────────────────────────────────────────────────────
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": env("DJANGO_DATABASE_NAME", default="interview"),
-        "USER": env("DJANGO_DATABASE_USER", default="postgres"),
-        "PASSWORD": env("DJANGO_DATABASE_PASSWORD", default="postgres"),
-        "HOST": env("DJANGO_DATABASE_HOST", default="localhost"),
-        "PORT": env("DJANGO_DATABASE_PORT", default="5432"),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
