@@ -60,17 +60,14 @@ class StickerEngine:
         return new_tx, True
 
     @staticmethod
-    def get_shopper_summary(shopper_id):
-        """Retrieve shopper balance and history."""
+    def get_shopper_with_history(shopper_id):
+        """
+        Retrieves a shopper and their transaction history in a single query.
+        Returning the model instance allows us to use ModelSerializers properly.
+        """
         try:
-            shopper = Shopper.objects.get(shopper_id=shopper_id)
-            # Order by most recent transaction
-            history = shopper.transactions.all().order_by('-timestamp')
-            return {
-                "shopper_id": shopper.shopper_id,
-                "balance": shopper.sticker_balance,
-                "history": history
-            }
+            # 'prefetch_related' performs 'Eager Loading' to solve the N+1 issue
+            return Shopper.objects.prefetch_related('transactions').get(shopper_id=shopper_id)
         except Shopper.DoesNotExist:
             return None
         
