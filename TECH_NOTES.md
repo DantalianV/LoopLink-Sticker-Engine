@@ -7,6 +7,7 @@ The goal was to build a self-contained loyalty system that calculates sticker re
 - **Service Layer Pattern**: All business logic (sticker calculations, validation, and persistence) is encapsulated in the `StickerEngine` class. This allows the CLI commands and the REST API to share the same logic, ensuring "DRY" code and consistent behavior across interfaces.
 - **Idempotency**: The system checks for existing `transaction_id` records before processing. This prevents shoppers from being double-awarded stickers if a transaction is submitted multiple times.
 - **Performance (Eager Loading)**: To avoid the N+1 query problem when retrieving shopper history, we implemented `prefetch_related('transactions')` in the service layer.
+- **Database**: SQLite was chosen for its zero-configuration and file-based portability, making it the most efficient choice for this MVP.
 
 ## 3. Example Commands / Requests to Try
 
@@ -22,3 +23,4 @@ The goal was to build a self-contained loyalty system that calculates sticker re
 
 ## 4. Use of AI Tools
 - **Cursor/ChatGPT**: Used to assist in rapid bootstrapping of Django boilerplates (Serializers and CLI Command structures) and for debugging environment-specific issues like PowerShell alias conflicts with `curl`.
+- **Framework Onboarding**: AI was used to quickly understand the specific folder structure of the Looplink starter project and to map out the relationships between project/settings.py and the newly created stickers app.
