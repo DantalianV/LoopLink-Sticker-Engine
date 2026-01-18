@@ -12,6 +12,13 @@ The goal was to build a self-contained loyalty system that calculates sticker re
 ## 3. Example Commands / Requests to Try
 
 ### CLI Commands
+--**Setup Database**:
+1. Ensure all model changes are captured (if any were not committed)
+`uv run python manage.py makemigrations stickers`
+
+2. Sync the database schema with your models
+`uv run python manage.py migrate`
+
 - **Ingest Transaction**:
   `uv run python manage.py ingest_transaction my_data.json`
 - **View Shopper Status**:
