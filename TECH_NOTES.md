@@ -27,4 +27,4 @@ The goal was to build a self-contained loyalty system that calculates sticker re
 
 ## 5. Extra Notes
 - **Bulk Upload**: Used a cli command to bulk upload transactions.
-    ``uv run python manage.py bulk_ingest_transaction bulk_data.json``
+    ``uv run python manage.py bulk_ingest_transactions bulk_data.json``
