@@ -1,7 +1,7 @@
 # Tech Notes: Mini Sticker Engine
 
 ## 1. Problem Overview
-The goal was to build a self-contained loyalty system that calculates sticker rewards based on purchase transactions while ensuring data integrity, idempotency, and ease of use via both CLI and API.
+The goal was to build a self-contained loyalty system that calculates sticker rewards based on purchase transactions while ensuring data integrity, idempotency, and modularity.
 
 ## 2. Approach & Modularity
 - **Service Layer Pattern**: All business logic (sticker calculations, validation, and persistence) is encapsulated in the `StickerEngine` class. This allows the CLI commands and the REST API to share the same logic, ensuring "DRY" code and consistent behavior across interfaces.

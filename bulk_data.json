@@ -1,14 +1,15 @@
 [
   {
-    "transaction_id": "tx-99901",
+    "transaction_id": "tx-9",
     "shopper_id": "shopper-abc-123",
     "store_id": "store-01",
     "timestamp": "2025-01-18T10:00:00Z",
     "items": [
-      { "sku": "MILK", "name": "Milk", "quantity": 1, "unit_price": 5.0, "category": "grocery" }
+      { "sku": "MILK", "name": "Milk", "quantity": 1, "unit_price": -5.0, "category": "grocery" }
     ]
   },
   {
+    "transaction_id": "tx-1010",
     "shopper_id": "shopper-abc-123",
     "store_id": "store-01",
     "timestamp": "2025-01-18T11:00:00Z",
