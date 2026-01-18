@@ -34,3 +34,4 @@ class Command(BaseCommand):
             self.stdout.write(f"{date_str:<20} | {tx.transaction_id:<30} | {tx.stickers_earned}")
         
         self.stdout.write("-" * 100 + "\n")
+        

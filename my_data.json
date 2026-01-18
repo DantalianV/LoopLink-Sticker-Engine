@@ -1,0 +1,10 @@
+{
+  "transaction_id": "tx-2025-001",
+  "shopper_id": "shopper-abc-123",
+  "store_id": "store-north-01",
+  "timestamp": "2025-01-15T14:30:00Z",
+  "items": [
+    { "sku": "SKU-BREAD", "name": "Organic Bread", "quantity": 1, "unit_price": 12.00, "category": "grocery" },
+    { "sku": "SKU-PROMO-CAP", "name": "Limited Edition Cap", "quantity": 1, "unit_price": 25.00, "category": "promo" }
+  ]
+}
