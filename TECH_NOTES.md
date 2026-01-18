@@ -24,3 +24,7 @@ The goal was to build a self-contained loyalty system that calculates sticker re
 ## 4. Use of AI Tools
 - **Cursor/ChatGPT**: Used to assist in rapid bootstrapping of Django boilerplates (Serializers and CLI Command structures) and for debugging environment-specific issues like PowerShell alias conflicts with `curl`.
 - **Framework Onboarding**: AI was used to quickly understand the specific folder structure of the Looplink starter project and to map out the relationships between project/settings.py and the newly created stickers app.
+
+## 5. Extra Notes
+- **Bulk Upload**: Used a cli command to bulk upload transactions.
+    ``uv run python manage.py bulk_ingest_transaction bulk_data.json``
